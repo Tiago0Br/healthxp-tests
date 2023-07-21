@@ -1,0 +1,30 @@
+{
+    "create": {
+        "name": "Myrtie Figueroa",
+        "email": "bovulat@rebabata.az",
+        "age": "21",
+        "weight": "70",
+        "feet_tall": "1.80"
+    },
+    "duplicate": {
+        "name": "Anne Sims",
+        "email": "umuluhowa@cetfolfim.pe",
+        "age": "30",
+        "weight": "90",
+        "feet_tall": "1.90"
+    },
+    "remove": {
+        "name": "Gustavo Silva Delete",
+        "email": "gustavosilva@gmail.com",
+        "age": "21",
+        "weight": "70",
+        "feet_tall": "1.80"
+    },
+    "required": {
+        "name": "",
+        "email": "",
+        "age": "",
+        "weight": "",
+        "feet_tall": ""
+    }
+}

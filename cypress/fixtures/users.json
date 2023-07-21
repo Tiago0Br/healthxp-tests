@@ -1,0 +1,49 @@
+{
+  "admin": {
+    "name": "Admin",
+    "email": "admin@healthxp.com",
+    "password": "xperience"
+  },
+  "inv_pass": {
+    "name": "Admin",
+    "email": "admin@healthxp.com",
+    "password": "senha123"
+  },
+  "email_not_found": {
+    "name": "Admin",
+    "email": "ciederob@gol.org",
+    "password": "senha123"
+  },
+  "inv_emails": [
+    {
+      "name": "Admin",
+      "email": "teste.com",
+      "password": "senha123"
+    },
+    {
+      "name": "Admin",
+      "email": "teste@teste",
+      "password": "senha123"
+    },
+    {
+      "name": "Admin",
+      "email": "teste@gmail.com.",
+      "password": "senha123"
+    },
+    {
+      "name": "Admin",
+      "email": "    teste@gmail.com",
+      "password": "senha123"
+    }
+  ],
+  "empty_email": {
+    "name": "Admin",
+    "email": "",
+    "password": "senha123"
+  },
+  "empty_pass": {
+    "name": "Admin",
+    "email": "teste@gmail.com",
+    "password": ""
+  }
+}
