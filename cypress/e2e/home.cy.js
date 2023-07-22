@@ -4,5 +4,5 @@ describe('Home', () => {
     
         cy.title()
             .should('equal', 'Health eXperience | Exclusivo para treinamentos na QAx')
-    });
-});
+    })
+})

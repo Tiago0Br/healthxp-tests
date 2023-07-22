@@ -19,8 +19,7 @@ describe('Alunos', () => {
     it('Não deve cadastrar com um e-mail duplicado', () => {
         const student = students.duplicate
 
-        cy.task('deleteStudent', student.email)
-        cy.task('insertStudent', student)
+        cy.task('resetStudent', student)
 
         studentPage.goToRegister()
         studentPage.submitForm(student)
@@ -30,8 +29,7 @@ describe('Alunos', () => {
     it('Deve remover um aluno sem matrícula', () => {
         const student = students.remove
 
-        cy.task('deleteStudent', student.email)
-        cy.task('insertStudent', student)
+        cy.task('resetStudent', student)
 
         studentPage.search(student.name)
         studentPage.remove(student.email)
@@ -46,10 +44,37 @@ describe('Alunos', () => {
         studentPage.goToRegister()
         studentPage.submitForm(student)
 
-        studentPage.requiredMessage('Nome completo', 'Nome é obrigatório')
-        studentPage.requiredMessage('E-mail', 'O email é obrigatório')
-        studentPage.requiredMessage('Idade', 'A idade é obrigatória')
-        studentPage.requiredMessage('Peso (em kg)', 'O peso é obrigatório')
-        studentPage.requiredMessage('Altura', 'A altura é obrigatória')
+        studentPage.errorMessage('Nome completo', 'Nome é obrigatório')
+        studentPage.errorMessage('E-mail', 'O email é obrigatório')
+        studentPage.errorMessage('Idade', 'A idade é obrigatória')
+        studentPage.errorMessage('Peso (em kg)', 'O peso é obrigatório')
+        studentPage.errorMessage('Altura', 'A altura é obrigatória')
+    })
+
+    it('Não deve cadastrar aluno com menos de 16 anos', () => {
+        const student = students.under_16_years
+
+        studentPage.goToRegister()
+        studentPage.submitForm(student)
+
+        studentPage.errorMessage('Idade', 'A idade mínima para treinar é 16 anos!')
+    })
+
+    it('Não deve cadastrar aluno com peso igual ou menor que 0', () => {
+        const student = students.invalid_weight
+
+        studentPage.goToRegister()
+        studentPage.submitForm(student)
+
+        studentPage.errorMessage('Peso (em kg)', 'Peso não permitido')
+    })
+
+    it('Não deve cadastrar aluno com altura igual ou menor que 0', () => {
+        const student = students.invalid_width
+
+        studentPage.goToRegister()
+        studentPage.submitForm(student)
+
+        studentPage.errorMessage('Altura', 'Altura não permitida')
     })
 })

@@ -32,10 +32,12 @@ describe('Login', () => {
             loginPage.fill(user)
             loginPage.submit()
             
-            loginPage.popup.content().invoke('text').then(message => {
-                receivedMessages.push(message)
-            })
-            expectedMessages.push('Insira um email válido.')
+            loginPage.popup.content()
+                .invoke('text')
+                .then(message => {
+                    receivedMessages.push(message)
+                    expectedMessages.push('Insira um email válido.')
+             })
 
             loginPage.popup.close()
         })

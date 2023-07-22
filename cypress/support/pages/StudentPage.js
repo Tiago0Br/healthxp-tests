@@ -32,8 +32,9 @@ class StudentPage {
             .click()
     }
 
-    requiredMessage(field, message) {
-        cy.contains('div', field)
+    errorMessage(label, message) {
+        cy.contains('label', label)
+            .parent()
             .find('span')
             .should('have.text', message)
     }
