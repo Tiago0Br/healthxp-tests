@@ -21,6 +21,7 @@ Projeto de testes E2E da aplicação HealthXp sendo desenvolvido no treinamento 
 	</a>
 </div>
 <br>
+
  - [Javascript] - Linguagem de programação
  - [Cypress] - Framework utilizado para criar os testes para a aplicação Web e a API
  - [CodeceptJS] - Framework que será utilizado em conjunto com o Appium para testar o app mobile
