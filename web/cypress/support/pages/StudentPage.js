@@ -13,11 +13,18 @@ class StudentPage {
 
     submitForm(student) {
         const { name, email, age, weight, feet_tall } = student
-        if (name) cy.get('input[name=name]').type(name)
-        if (email) cy.get('input[name=email]').type(email)
-        if (age) cy.get('input[name=age]').type(age)
-        if (weight) cy.get('input[name=weight]').type(weight)
-        if (feet_tall) cy.get('input[name=feet_tall]').type(feet_tall)
+
+        cy.get('input[name=name]').as('name')
+        cy.get('input[name=email]').as('email')
+        cy.get('input[name=age]').as('age')
+        cy.get('input[name=weight]').as('weight')
+        cy.get('input[name=feet_tall]').as('feetTall')
+
+        name ? cy.get('@name').type(name) : cy.log('Empty name')
+        email ? cy.get('@email').type(email) : cy.log('Empty email')
+        age ? cy.get('@age').type(age) : cy.log('Empty age')
+        weight ? cy.get('@weight').type(weight) : cy.log('Empty weight')
+        feet_tall ? cy.get('@feetTall').type(feet_tall) : cy.log('Empty feet_tall')
 
         cy.contains('button', 'Cadastrar').click()
     }

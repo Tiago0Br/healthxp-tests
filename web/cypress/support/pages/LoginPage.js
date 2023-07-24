@@ -11,8 +11,12 @@ class LoginPage {
 
     fill(user) {
         const { email, password } = user
-        if (email) cy.get('#email').clear({ force: true }).type(email)
-        if (password) cy.get('#password').clear({ force: true }).type(password)
+
+        cy.get('#email').clear({ force: true }).as('email')
+        cy.get('#password').clear({ force: true }).as('password')
+
+        email ? cy.get('@email').type(email) : cy.log('Empty email.')
+        password ? cy.get('@password').type(password) : cy.log('Empty password.')
     }
 
     submit() {
