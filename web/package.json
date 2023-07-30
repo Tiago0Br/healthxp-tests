@@ -15,8 +15,7 @@
   "author": "Tiago Lopes",
   "license": "MIT",
   "devDependencies": {
-    "@faker-js/faker": "^8.0.2",
-    "cypress": "^12.16.0",
+    "cypress": "^12.17.2",
     "pg": "^8.11.1"
   }
 }

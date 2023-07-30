@@ -7,6 +7,20 @@ module.exports = defineConfig({
         baseUrl: 'http://localhost:3000',
         setupNodeEvents(on, _) {
             on('task', {
+                async selectStudentId(studentEmail) {
+                    const pool = new Pool(dbConfig)
+                    try {
+                        const query = `SELECT id FROM students WHERE email = $1;`
+                        const result = await pool.query(query, [studentEmail])
+                        await pool.end()
+                        return result.rows[0].id
+                    } catch (error) {
+                        console.log(error)
+                        await pool.end()
+                        return null
+                    }
+                },
+
                 async deleteStudent(studentEmail) {
                     const pool = new Pool(dbConfig)
                     try {

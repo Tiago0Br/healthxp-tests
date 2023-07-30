@@ -1,0 +1,28 @@
+{
+    "create": {
+        "student": {
+            "name": "Tiago Lopes",
+            "email": "tiagolopes@gmail.com",
+            "age": "21",
+            "weight": "70",
+            "feet_tall": "1.85"
+        },
+        "plan": {
+            "id": 1,
+            "name": "Health"
+        }
+    },
+    "duplicate": {
+        "student": {
+            "name": "John Doe",
+            "email": "johndoe@gmail.com",
+            "age": "30",
+            "weight": "81",
+            "feet_tall": "1.74"
+        },
+        "plan": {
+            "id": 1,
+            "name": "Health"
+        }
+    }
+}
