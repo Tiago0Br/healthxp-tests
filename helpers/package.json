@@ -1,0 +1,19 @@
+{
+  "name": "helpers",
+  "version": "1.0.0",
+  "description": "API Helpers para testes automatizados",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "apihelpers"
+  ],
+  "author": "Tiago Lopes",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "pg": "^8.11.2"
+  }
+}

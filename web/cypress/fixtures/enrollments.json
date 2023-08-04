@@ -10,7 +10,11 @@
         "plan": {
             "id": 1,
             "name": "Health"
-        }
+        },
+        "enrollment_code": "ABCD123",
+        "credit_card": "4242",
+        "status": true,
+        "price": 99.99
     },
     "duplicate": {
         "student": {
@@ -23,6 +27,10 @@
         "plan": {
             "id": 1,
             "name": "Health"
-        }
+        },
+        "enrollment_code": "XPTO123",
+        "credit_card": "4242",
+        "status": true,
+        "price": 99.99
     }
 }

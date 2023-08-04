@@ -5,7 +5,7 @@ describe('Matrículas', () => {
     it('Deve realizar matrícula de um aluno', () => {
         const enrollment = data.create
 
-        cy.task('resetStudent', enrollment.student)
+        cy.resetStudent(enrollment.student)
         cy.adminLogin()
 
         enrollsPage.navbar.goToEnrolls()
@@ -23,7 +23,7 @@ describe('Matrículas', () => {
     it('Não deve criar matrícula duplicada', () => {
         const enrollment = data.duplicate
 
-        cy.task('resetStudent', enrollment.student)
+        cy.resetStudent(enrollment.student)
         cy.createEnroll(enrollment)
         cy.adminLogin()
 

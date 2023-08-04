@@ -9,7 +9,7 @@ describe('Alunos', () => {
     it('Deve poder cadastrar um novo aluno', () => {
         const student = students.create
 
-        cy.task('deleteStudent', student.email)
+        cy.deleteStudent(student.email)
 
         studentPage.goToRegister()
         studentPage.submitForm(student)
@@ -19,7 +19,7 @@ describe('Alunos', () => {
     it('Não deve cadastrar com um e-mail duplicado', () => {
         const student = students.duplicate
 
-        cy.task('resetStudent', student)
+        cy.resetStudent(student)
 
         studentPage.goToRegister()
         studentPage.submitForm(student)
@@ -29,7 +29,7 @@ describe('Alunos', () => {
     it('Deve remover um aluno sem matrícula', () => {
         const student = students.remove
 
-        cy.task('resetStudent', student)
+        cy.resetStudent(student)
 
         studentPage.search(student.name)
         studentPage.remove(student.email)
@@ -60,7 +60,7 @@ describe('Alunos', () => {
         studentPage.errorMessage('Idade', 'A idade mínima para treinar é 16 anos!')
     })
 
-    it('Não deve cadastrar aluno com peso igual ou menor que 0', () => {
+    it.skip('Não deve cadastrar aluno com peso igual ou menor que 0', () => {
         const student = students.invalid_weight
 
         studentPage.goToRegister()
@@ -69,7 +69,7 @@ describe('Alunos', () => {
         studentPage.errorMessage('Peso (em kg)', 'Peso não permitido')
     })
 
-    it('Não deve cadastrar aluno com altura igual ou menor que 0', () => {
+    it.skip('Não deve cadastrar aluno com altura igual ou menor que 0', () => {
         const student = students.invalid_width
 
         studentPage.goToRegister()

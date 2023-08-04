@@ -2,36 +2,54 @@ import loginPage from './pages/LoginPage'
 import studentPage from './pages/StudentPage'
 import users from '../fixtures/users.json'
 
+const apiHelper = Cypress.env('apiHelper')
+
 Cypress.Commands.add('adminLogin', () => {
     const user = users.admin
     loginPage.doLogin(user)
     studentPage.navbar.userLoggedIn(user.name)
 })
 
+Cypress.Commands.add('resetStudent', student => {
+    cy.request({
+        method: 'POST',
+        url: `${apiHelper}/students`,
+        body: student
+    }).its('status').should('eq', 201)
+})
+
+Cypress.Commands.add('selectStudentId', email => {
+    cy.request({
+        method: 'GET',
+        url: `${apiHelper}/students/${email}`
+    }).then(res => {
+        expect(res.status).eq(200)
+        return res.body.id
+    })
+})
+
+Cypress.Commands.add('deleteStudent', email => {
+    cy.request({
+        method: 'DELETE',
+        url: `${apiHelper}/students/${email}`
+    }).its('status').should('eq', 204)
+})
+
 Cypress.Commands.add('createEnroll', enroll => {
-    cy.task('selectStudentId', enroll.student.email).then(studentId => {
+    cy.selectStudentId(enroll.student.email).then(student_id => {
+        const payload = {
+            enrollment_code: enroll.enrollment_code, 
+            student_id, 
+            plan_id: enroll.plan.id, 
+            credit_card: enroll.credit_card, 
+            status: enroll.status, 
+            price: enroll.price
+        }
+
         cy.request({
             method: 'POST',
-            url: `${Cypress.env('apiUrl')}/sessions`,
-            body: {
-                email: users.admin.email,
-                password: users.admin.password
-            }
-        }).then(({ body }) => {
-            const payload = {
-                student_id: studentId,
-                plan_id: enroll.plan.id,
-                credit_card: "4242"
-            }
-
-            cy.request({
-                method: 'POST',
-                url: `${Cypress.env('apiUrl')}/enrollments`,
-                headers: {
-                    Authorization: `Bearer ${body.token}`
-                },
-                body: payload
-            }).its('status').should('eq', 201)
-        })
+            url: `${apiHelper}/enrollments`,
+            body: payload
+        }).its('status').should('eq', 201)
     })
 })
