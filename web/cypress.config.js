@@ -1,8 +1,8 @@
 const { defineConfig } = require('cypress')
-const { baseUrl } = require('./cypress.env.json')
+const { BASE_URL } = require('./cypress.env.json')
 
 module.exports = defineConfig({
     e2e: {
-        baseUrl,
+        baseUrl: BASE_URL,
     },
 });

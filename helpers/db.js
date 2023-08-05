@@ -1,17 +1,17 @@
 const { Pool } = require('pg')
 require('dotenv').config()
 
-const { DB_HOST, DB_USER, DB_PASSWORD, DATABASE, DB_PORT } = process.env
+const { DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT } = process.env
 
 const pool = new Pool({
     host: DB_HOST,
     user: DB_USER,
     password: DB_PASSWORD,
-    database: DATABASE,
+    database: DB_NAME,
     port: DB_PORT
 })
 
-const createAndDeleteStudent = (req, res) => {
+const deleteAndCreateStudent = (req, res) => {
     const student = req.body
 
     const query = `
@@ -46,38 +46,33 @@ const deleteStudentByEmail = (req, res) => {
     })
 }
 
-const selectStudentByEmail = (req, res) => {
-    const email = req.params.email
-
-    const query = 'SELECT id FROM students WHERE email = $1;'
-    pool.query(query, [ email ], (error, result) => {
-        if (error) {
-            return res.status(500).json(error)
-        }
-
-        return res.json(result.rows[0])
-    })
-}
-
-const insertEnroll = (req, res) => {
-    const { enrollment_code, student_id, plan_id, credit_card, status, price } = req.body
+const insertEnrollByEmail = (req, res) => {
+    const { email, plan_id, price } = req.body
     const query = `
         INSERT INTO enrollments (enrollment_code, student_id, plan_id, credit_card, status, price)
-        VALUES ('${enrollment_code}', ${student_id}, ${plan_id}, '${credit_card}', ${status}, ${price})
+        SELECT 
+            'XPTO123' AS enrollment_code, 
+            id AS student_id, 
+            $2 AS plan_id, 
+            '4242' AS credit_card, 
+            true AS status, 
+            $3 AS price
+            FROM students
+            WHERE email = $1;
     `
 
-    pool.query(query, (error, result) => {
+    const values = [email, plan_id, price]
+    pool.query(query, values, (error) => {
         if (error) {
             return res.status(500).json(error)
         }
 
-        return res.status(201).json(result)
+        return res.status(201).end()
     })
 }
 
 module.exports = {
-    createAndDeleteStudent,
+    deleteAndCreateStudent,
     deleteStudentByEmail,
-    selectStudentByEmail,
-    insertEnroll
+    insertEnrollByEmail
 }

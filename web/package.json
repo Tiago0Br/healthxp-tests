@@ -15,7 +15,6 @@
   "author": "Tiago Lopes",
   "license": "MIT",
   "devDependencies": {
-    "cypress": "^12.17.2",
-    "pg": "^8.11.1"
+    "cypress": "^12.17.3"
   }
 }
