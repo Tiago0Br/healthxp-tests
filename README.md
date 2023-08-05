@@ -29,18 +29,40 @@ Projeto de testes E2E da aplicação HealthXp sendo desenvolvido no treinamento 
 
 ## 👨🏻‍💻 Como executar o projeto
 
- **Pré-requisitos**: É necessário ter o [Node](https://nodejs.org/pt-br) instalado no computador.
+ **Pré-requisitos**: 
+ 
+ - [Node](https://nodejs.org/pt-br) deve estar instalado no computador
 
 ### Executando o projeto
 
- - Clonar o projeto.
- - Instalar as dependências com `npm install` ou `yarn install`
- - Criar o arquivo cypress.env.json
+ - Clonar o projeto de testes
+ - Baixar a aplicação [HealthXp](https://drive.google.com/file/d/1kiIC_Wg_AqcUlhJYaR6SWA9PrlyOx05A/view?usp=drive_link) no computador
+ - Descompactar o arquivo zip em qualquer pasta de sua preferência
+ - Acessar a pasta da aplicação pela linha de comando
+ - Acessar a pasta "api" e instalar as dependências com `npm install`
+ - No arquivo `.env` deverá substituir os sinas de interrogação do trecho abaixo pelos valores do seu banco no [ElephantSQL](https://www.elephantsql.com/)
+
+		# Database
+		DB_DIALECT=postgres
+		DB_HOST=???
+		DB_USER=???
+		DB_PASS=???
+		DB_NAME=???
+
+ - Executar a API com o comando `npm run dev`
+ - Em outra aba do terminal, acessar a pasta "web" e instalar as dependências com `npm install`
+ - Executar a aplicação Web com o comando `npm run dev`
+ - Acessar o projeto de testes
+ - Acessar a pasta "helpers"
+ - Alterar o arquivo `.env` adicionando os mesmos valores do seu banco de dados no ElephantSQL
+ - Executar a API Helper com o comando `npm run dev`
+ - Acessar a pasta "web" do projeto de testes
+ - Instalar as dependências
+ - Criar o arquivo cypress.env.json com base no arquivo cypress.env.example.json
         
         cp cypress.env.example.json cypress.env.json
 
- - Alterar os valores das variáveis para os valores do seu banco no [ElephantSQL](https://www.elephantsql.com/)
- - Executar o Cypress em modo assistido com `npx cypress open` ou em modo headless com `npx cypress run`
+ - Executar o Cypress em modo assistido com `npm run cy:open` ou em modo headless com `npm test`
 ---
 
 Feito com 💜 &nbsp;por Tiago Lopes 👋 &nbsp;
