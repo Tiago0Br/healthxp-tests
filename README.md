@@ -40,7 +40,7 @@ Projeto de testes E2E da aplicação HealthXp sendo desenvolvido no treinamento 
  - Descompactar o arquivo zip em qualquer pasta de sua preferência
  - Acessar a pasta da aplicação pela linha de comando
  - Acessar a pasta "api" e instalar as dependências com `npm install`
- - No arquivo `.env` deverá substituir os sinas de interrogação do trecho abaixo pelos valores do seu banco no [ElephantSQL](https://www.elephantsql.com/)
+ - No arquivo `.env` deverá substituir os sinais de interrogação do trecho abaixo pelos valores do seu banco no [ElephantSQL](https://www.elephantsql.com/)
 
 		# Database
 		DB_DIALECT=postgres
