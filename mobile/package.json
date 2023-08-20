@@ -1,0 +1,20 @@
+{
+  "name": "mobile",
+  "version": "1.0.0",
+  "description": "Projeto de testes automatizados para aplicativo mobile",
+  "main": "index.js",
+  "scripts": {
+    "test": "codeceptjs run"
+  },
+  "keywords": [
+    "tests",
+    "mobile"
+  ],
+  "author": "Tiago Lopes",
+  "license": "ISC",
+  "dependencies": {
+    "appium": "^1.22.3",
+    "codeceptjs": "^3.5.3",
+    "webdriverio": "^8.15.4"
+  }
+}
