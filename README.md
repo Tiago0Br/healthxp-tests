@@ -36,7 +36,7 @@ Projeto de testes E2E da aplicação HealthXp sendo desenvolvido no treinamento 
 ### Executando o projeto
 
  - Clonar o projeto de testes
- - Baixar a aplicação [HealthXp](https://drive.google.com/file/d/1kiIC_Wg_AqcUlhJYaR6SWA9PrlyOx05A/view?usp=drive_link) no computador
+ - Baixar a aplicação [HealthXp](https://drive.google.com/drive/folders/1aF988zhWX3mYETqONdCvn_BlOxPXGrvd?usp=drive_link) no computador
  - Descompactar o arquivo zip em qualquer pasta de sua preferência
  - Acessar a pasta da aplicação pela linha de comando
  - Acessar a pasta "api" e instalar as dependências com `npm install`
