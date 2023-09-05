@@ -4,7 +4,7 @@
   "description": "Projeto de automação de testes E2E em Cypress",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run",
+    "test": "node runner.js",
     "cy:open": "cypress open"
   },
   "keywords": [
@@ -15,6 +15,7 @@
   "author": "Tiago Lopes",
   "license": "MIT",
   "devDependencies": {
-    "cypress": "^12.17.3"
+    "cypress": "^13.1.0",
+    "cypress-tesults-reporter": "^1.4.1"
   }
 }
