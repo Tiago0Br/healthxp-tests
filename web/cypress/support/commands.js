@@ -15,7 +15,11 @@ Cypress.Commands.add('resetStudent', student => {
         method: 'POST',
         url: `${apiHelper}/students`,
         body: student
-    }).its('status').should('eq', 201)
+    }).then(res => {
+        expect(res.status).eq(201)
+        cy.log(res.body.student_id)
+        Cypress.env('studentId', res.body.student_id)
+    })
 })
 
 Cypress.Commands.add('deleteStudent', email => {
@@ -29,12 +33,22 @@ Cypress.Commands.add('createEnroll', enroll => {
     const payload = {
         email: enroll.student.email,
         plan_id: enroll.plan.id,
-        price: enroll.price
+        price: enroll.plan.price
     }
 
     cy.request({
         method: 'POST',
         url: `${apiHelper}/enrollments`,
         body: payload
+    }).its('status').should('eq', 201)
+})
+
+Cypress.Commands.add('createQuestion', question => {
+    cy.request({
+        method: 'POST',
+        url: `http://localhost:3333/students/${Cypress.env('studentId')}/help-orders`,
+        body: {
+            question
+        }
     }).its('status').should('eq', 201)
 })

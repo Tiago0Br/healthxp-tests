@@ -1,5 +1,5 @@
 {
-    "create": {
+    "notification": {
         "student": {
             "name": "Tiago Lopes",
             "email": "tiagolopes@gmail.com",
@@ -11,20 +11,23 @@
             "id": 1,
             "name": "Health",
             "price": 99.99
-        }
+        },
+        "question": "Qual o melhor termogênico?"
     },
-    "duplicate": {
+    "prof_answer": {
         "student": {
-            "name": "John Doe",
-            "email": "johndoe@gmail.com",
-            "age": "30",
-            "weight": "81",
-            "feet_tall": "1.74"
+            "name": "Estelle Holloway",
+            "email": "estelleholloway@email.com",
+            "age": "21",
+            "weight": "70",
+            "feet_tall": "1.85"
         },
         "plan": {
             "id": 1,
             "name": "Health",
             "price": 99.99
-        }
+        },
+        "question": "Como ganhar massa magra?",
+        "answer": "Coma bastante proteínas"
     }
 }
