@@ -23,6 +23,7 @@ exports.config = {
   include: {
     I: './support/steps_file.js',
     loginScreen: './support/screens/login.js',
+    questionScreen: './support/screens/question.js',
   },
   name: 'mobile'
 }
