@@ -1,0 +1,20 @@
+{
+  "name": "healthxp-web-tests",
+  "version": "1.0.0",
+  "description": "Testes de API com Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run"
+  },
+  "keywords": [
+    "testes",
+    "api",
+    "cypress"
+  ],
+  "author": "Tiago Lopes",
+  "license": "MIT",
+  "devDependencies": {
+    "@bahmutov/cy-api": "2.2.6",
+    "cypress": "13.3.0"
+  }
+}
