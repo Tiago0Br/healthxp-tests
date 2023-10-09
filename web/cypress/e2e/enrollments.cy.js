@@ -10,12 +10,7 @@ describe('Matrículas', () => {
 
         enrollsPage.navbar.goToEnrolls()
         enrollsPage.goToForm()
-
-        enrollsPage.selectItem('student', enrollment.student.name)
-        enrollsPage.selectItem('plan', enrollment.plan.name)
-
-        enrollsPage.fillCard(enrollment.student.name)
-        enrollsPage.submit()
+        enrollsPage.submitForm(enrollment)
 
         enrollsPage.popup.haveText('Matrícula cadastrada com sucesso.')
     })
@@ -29,12 +24,7 @@ describe('Matrículas', () => {
 
         enrollsPage.navbar.goToEnrolls()
         enrollsPage.goToForm()
-
-        enrollsPage.selectItem('student', enrollment.student.name)
-        enrollsPage.selectItem('plan', enrollment.plan.name)
-
-        enrollsPage.fillCard(enrollment.student.name)
-        enrollsPage.submit()
+        enrollsPage.submitForm(enrollment)
 
         enrollsPage.popup.haveText('O aluno já possui matrícula cadastrada!')
     })

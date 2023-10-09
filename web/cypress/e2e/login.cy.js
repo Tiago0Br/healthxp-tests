@@ -24,9 +24,6 @@ describe('Login', () => {
     })
 
     it('Não deve logar com emails inválidos', () => {
-        const expectedMessages = []
-        const receivedMessages = []
-
         loginPage.go()
         users.inv_emails.forEach(user => {
             loginPage.fill(user)
@@ -35,14 +32,11 @@ describe('Login', () => {
             loginPage.popup.content()
                 .invoke('text')
                 .then(message => {
-                    receivedMessages.push(message)
-                    expectedMessages.push('Insira um email válido.')
-             })
+                    cy.wrap(message.trim()).should('equal', 'Insira um email válido.')
+                })
 
             loginPage.popup.close()
         })
-
-        cy.wrap(expectedMessages).should('deep.equal', receivedMessages)
     })
 
     it('Não deve logar com o campo e-mail em branco', () => {

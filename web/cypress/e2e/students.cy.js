@@ -26,18 +26,6 @@ describe('Alunos', () => {
         studentPage.popup.haveText('O email informado já foi cadastrado!')
     })
 
-    it('Deve remover um aluno sem matrícula', () => {
-        const student = students.remove
-
-        cy.resetStudent(student)
-
-        studentPage.search(student.name)
-        studentPage.remove(student.email)
-        
-        studentPage.popup.confirm()
-        studentPage.popup.haveText('Exclusão realizada com sucesso.')
-    })
-
     it('Todos os campos devem ser obrigatórios', () => {
         const student = students.required
 
@@ -58,6 +46,18 @@ describe('Alunos', () => {
         studentPage.submitForm(student)
 
         studentPage.errorMessage('Idade', 'A idade mínima para treinar é 16 anos!')
+    })
+
+    it('Deve remover um aluno sem matrícula', () => {
+        const student = students.remove
+
+        cy.resetStudent(student)
+
+        studentPage.search(student.name)
+        studentPage.remove(student.email)
+
+        studentPage.popup.confirm()
+        studentPage.popup.haveText('Exclusão realizada com sucesso.')
     })
 
     it.skip('Não deve cadastrar aluno com peso igual ou menor que 0', () => {

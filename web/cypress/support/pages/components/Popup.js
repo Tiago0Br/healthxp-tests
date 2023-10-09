@@ -15,6 +15,7 @@ class Popup {
 
     close() {
         cy.get('button.swal2-cancel').click()
+        cy.get('.swal2-popup').should('not.exist')
     }
 }
 

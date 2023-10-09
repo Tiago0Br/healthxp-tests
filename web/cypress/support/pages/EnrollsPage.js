@@ -33,6 +33,13 @@ class EnrollsPage {
     submit() {
         cy.get('button[type=submit]').click()
     }
+
+    submitForm(enrollment) {
+        this.selectItem('student', enrollment.student.name)
+        this.selectItem('plan', enrollment.plan.name)
+        this.fillCard(enrollment.student.name)
+        this.submit()
+    }
 }
 
 export default new EnrollsPage()
