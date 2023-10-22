@@ -5,6 +5,7 @@ const {
 // turn on headless mode when running with HEADLESS=true environment variable
 // export HEADLESS=true && npx codeceptjs run
 setHeadlessWhen(process.env.HEADLESS);
+require('dotenv').config()
 
 // enable all common plugins https://github.com/codeceptjs/configure#setcommonplugins
 setCommonPlugins();
@@ -17,7 +18,21 @@ exports.config = {
     Appium: {
       app: './app/hxp-beta2.apk',
       platform: 'Android',
-      device: 'emulator'
+      device: 'emulator',
+      desiredCapabilities: {
+        platformName: 'Android',
+        deviceName: 'emulator',
+        app: `./app/hxp-beta2.apk`,
+        automationName: 'UIAutomator2',
+        udid: 'emulator-5554'
+      }
+    }
+  },
+  plugins: {
+    tesults: {
+      require: 'codeceptjs-tesults',
+      enabled: true,
+      target: process.env.TESULTS_TOKEN
     }
   },
   include: {
