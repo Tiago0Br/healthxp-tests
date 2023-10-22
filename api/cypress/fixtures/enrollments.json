@@ -1,0 +1,10 @@
+{
+    "valid": {
+        "plan_id": 2,
+        "credit_card": "1234"
+    },
+    "invalid_credit_card": {
+        "plan_id": 2,
+        "credit_card": "123"
+    }
+}

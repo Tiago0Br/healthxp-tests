@@ -4,7 +4,7 @@
   "description": "Testes de API com Cypress",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run"
+    "test": "node runner.js"
   },
   "keywords": [
     "testes",
@@ -15,6 +15,7 @@
   "license": "MIT",
   "devDependencies": {
     "@bahmutov/cy-api": "2.2.6",
-    "cypress": "13.3.0"
+    "cypress": "^13.3.2",
+    "cypress-tesults-reporter": "^1.4.1"
   }
 }

@@ -1,0 +1,14 @@
+{
+  "valid": {
+    "email": "admin@healthxp.com",
+    "password": "xperience"
+  },
+  "invalid_password": {
+    "email": "admin@healthxp.com",
+    "password": "experience"
+  },
+  "invalid_email": {
+    "email": "admin@healthxp.net",
+    "password": "xperience"
+  }
+}

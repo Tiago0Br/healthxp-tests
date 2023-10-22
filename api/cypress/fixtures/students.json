@@ -1,0 +1,9 @@
+{
+    "valid": {
+        "name": "Gustavo Silva",
+        "email": "gustavosilva1998@hotmail.com",
+        "age": 30,
+        "weight": 80,
+        "feet_tall": 1.85
+    }
+}
