@@ -4,20 +4,17 @@ module.exports = {
     locators: {
         questionField: { android: '#textQuestion' },
         btnSubmit: { android: '#btnSubmit' },
-        message: { android: '#android:id/message' }
+        menuHelp: { android: 'Pedir ajuda' },
+        btnNewQuestion: { android: 'Enviar dúvida' }
     },
 
     access() {
-        I.tap('Pedir ajuda')
-        I.tap('Enviar dúvida')
+        I.tap(this.locators.menuHelp)
+        I.tap(this.locators.btnNewQuestion)
     },
 
     submit(question) {
         I.fillField(this.locators.questionField, question)
         I.tap(this.locators.btnSubmit)
-    },
-
-    messageHaveText(text) {
-        I.see(text, this.locators.message)
     }
 }

@@ -17,9 +17,5 @@ module.exports = {
         I.fillField(this.locators.enrollment, enrollmentCode)
 
         I.tap('Entrar')
-    },
-
-    messageHaveText(text) {
-        I.see(text, this.locators.message)
     }
 }

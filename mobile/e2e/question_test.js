@@ -1,8 +1,8 @@
 Feature('Realizar pergunta')
 
-Before(({ I, loginScreen, questionScreen }) => {
+Before(({ loginScreen, questionScreen, accountScreen }) => {
     loginScreen.submit('X8DBGI')
-    I.see('Minha conta')
+    accountScreen.userLoggedIn()
     
     questionScreen.access()
 })
