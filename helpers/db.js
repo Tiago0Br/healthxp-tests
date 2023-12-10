@@ -1,4 +1,5 @@
 const { Pool } = require('pg')
+const ShortUniqueId = require('short-unique-id')
 require('dotenv').config()
 
 const { DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT } = process.env
@@ -57,26 +58,29 @@ const deleteStudentByEmail = (req, res) => {
 
 const insertEnrollByEmail = (req, res) => {
     const { email, plan_id, price } = req.body
+    const uid = new ShortUniqueId({ length: 6 });
+
     const query = `
         INSERT INTO enrollments (enrollment_code, student_id, plan_id, credit_card, status, price)
         SELECT 
-            'XPTO123' AS enrollment_code, 
+            '${uid.rnd().toUpperCase()}' AS enrollment_code, 
             id AS student_id, 
             $2 AS plan_id, 
             '4242' AS credit_card, 
             true AS status, 
             $3 AS price
             FROM students
-            WHERE email = $1;
+            WHERE email = $1
+            RETURNING enrollment_code;
     `
 
     const values = [email, plan_id, price]
-    pool.query(query, values, (error) => {
+    pool.query(query, values, (error, result) => {
         if (error) {
             return res.status(500).json(error)
         }
 
-        return res.status(201).end()
+        return res.status(201).json({ enrollment_code: result.rows[0].enrollment_code })
     })
 }
 

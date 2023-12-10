@@ -17,5 +17,8 @@
     "express-joi-validation": "^5.0.1",
     "joi": "^17.9.2",
     "pg": "^8.11.2"
+  },
+  "devDependencies": {
+    "short-unique-id": "^5.0.3"
   }
 }
