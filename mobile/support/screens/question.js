@@ -9,12 +9,12 @@ module.exports = {
     },
 
     access() {
-        I.tap(this.locators.menuHelp)
-        I.tap(this.locators.btnNewQuestion)
+        I.click(this.locators.menuHelp)
+        I.click(this.locators.btnNewQuestion)
     },
 
     submit(question) {
         I.fillField(this.locators.questionField, question)
-        I.tap(this.locators.btnSubmit)
+        I.click(this.locators.btnSubmit)
     }
 }

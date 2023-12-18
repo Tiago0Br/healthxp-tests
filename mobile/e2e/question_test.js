@@ -1,22 +1,25 @@
-Feature('Realizar pergunta')
+const order = require('../fixtures/orders.json')
 
-Before(({ loginScreen, questionScreen, accountScreen }) => {
-    loginScreen.submit('X8DBGI')
+Feature('Realizar pergunta')
+const data = order.help
+
+Before(async ({ I, loginScreen, questionScreen, accountScreen }) => {
+
+    I.resetStudent(data.student)
+    const enrollmentCode = await I.createEnroll(data)
+
+    loginScreen.submit(enrollmentCode)
     accountScreen.userLoggedIn()
     
     questionScreen.access()
 })
 
-Scenario('Deve enviar a dúvida com sucesso', ({ questionScreen }) => {
-    const question = 'Que exercícios devo fazer para ganhar massa muscular?'
-    
-    questionScreen.submit(question)
-    questionScreen.messageHaveText('Sua dúvida foi recebida e será avaliada pela nossa equipe.')
+Scenario('Deve enviar a dúvida com sucesso', ({I,  questionScreen }) => {
+    questionScreen.submit(data.question)
+    I.seeThatPopHaveText('Sua dúvida foi recebida e será avaliada pela nossa equipe.')
 })
 
-Scenario('Não deve enviar dúvida em branco', ({ questionScreen }) => {
-    const question = ''
-
-    questionScreen.submit(question)
-    questionScreen.messageHaveText('Por favor escreva a sua dúvida!')
+Scenario('Não deve enviar dúvida em branco', ({ I, questionScreen }) => {
+    questionScreen.submit('')
+    I.seeThatPopHaveText('Por favor escreva a sua dúvida!')
 })
