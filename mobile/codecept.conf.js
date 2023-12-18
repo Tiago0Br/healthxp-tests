@@ -26,6 +26,12 @@ exports.config = {
         automationName: 'UIAutomator2',
         udid: 'emulator-5554'
       }
+    },
+    REST: {
+      endpoint: 'http://localhost:5000'
+    },
+    JSONResponse: {
+      requestHelper: 'REST'
     }
   },
   plugins: {
@@ -39,6 +45,7 @@ exports.config = {
     I: './support/steps_file.js',
     loginScreen: './support/screens/login.js',
     questionScreen: './support/screens/question.js',
+    accountScreen: './support/screens/account.js',
   },
   name: 'mobile'
 }
